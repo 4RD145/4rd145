@@ -1,0 +1,140 @@
+{
+  "log": {
+    "disabled": false,
+    "timestamp": false,
+    "level": "panic"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "sing",
+        "address": "1.1.1.1",
+        "detour": "PROXY"
+      },
+      {
+        "tag": "rcode",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "domain_suffix": [
+          "googlesyndication.com"
+        ],
+        "domain": [
+          "github.com"
+        ],
+        "server": "sing"
+      },
+      {
+        "geosite": "category-ads-all",
+        "server": "rcode"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun3",
+      "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::1/126",
+      "mtu": 9000,
+      "stack": "system",
+      "auto_route": true,
+      "strict_route": false,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "include_android_user": [
+        0,
+        10
+      ],
+      "include_package": [],
+      "exclude_package": []
+    },
+    {
+      "type": "redirect",
+      "tag": "redirect-in",
+      "listen": "::",
+      "listen_port": 9797,
+      "sniff": true,
+      "sniff_override_destination": false
+    }
+  ],
+  "proxyproviders": [
+    {
+      "tag": "airport_1",
+      "url": "https://raw.githubusercontent.com/4RD145/4rd145/main/4rd1.txt",
+      "cache_file": "./airport_1.db",
+      "force_update": "24h",
+      "custom_group": [
+        {
+          "tag": "Best-Ping",
+          "type": "urltest"
+        }
+      ]
+    },
+    {
+      "tag": "airport_2",
+      "url": "https://raw.githubusercontent.com/4RD145/4rd145/main/fool.txt",
+      "cache_file": "./airport_2.db",
+      "force_update": "24h"
+    }
+  ],
+  "outbounds": [
+    {
+      "outbounds": [
+        "direct",
+        "airport_1",
+        "airport_2"
+      ],
+      "tag": "PROXY",
+      "type": "selector"
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    }
+  ],
+  "route": {
+    "final": "PROXY",
+    "rules": [
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "domain_regex": [
+          "^.*adtival\\.network$",
+          "^.*googlesyndication.com$"
+        ],
+        "domain": [
+          "github.com"
+        ],
+        "outbound": "PROXY"
+      },
+      {
+        "geosite": "category-ads-all",
+        "outbound": "block"
+      }
+    ],
+    "find_process": false,
+    "auto_detect_interface": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "./dashboard",
+      "store_selected": true
+    }
+  }
+}
