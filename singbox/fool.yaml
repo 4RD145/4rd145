@@ -8,6 +8,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     servername: sg1.foolvpn.tech
+    client-fingerprint: random
     network: ws
     ws-opts:
       path: /vless
