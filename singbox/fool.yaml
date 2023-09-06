@@ -18,3 +18,25 @@ proxies:
       - http/1.1
     udp: true
     xudp: true
+    
+  - name: id2 foolvpn
+    server: beacon.liveon.id
+    port: 443
+    type: vless
+    uuid: 9b193245-506e-4660-8dd7-832d973d4182
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: id2.foolvpn.tech
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        Host: id2.foolvpn.tech
+      max-early-data: 0
+      early-data-header-name: Sec-WebSocket-Protocol
+    alpn:
+      - h2
+      - http/1.1
+    udp: true
+    xudp: true
