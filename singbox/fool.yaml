@@ -1,2 +1,16 @@
 proxies:
-  - {name: u4203023812-152, server: 104.21.8.121, port: 8443, type: vmess, uuid: b7b31d13-8f8c-4427-8c78-d7592f189c68, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: si3.09vpn.com, network: ws, ws-opts: {path: /vmess/, headers: {Host: si3.09vpn.com}, max-early-data: 0, early-data-header-name: Sec-WebSocket-Protocol}, alpn: [h2, http/1.1], xudp: true, udp: true}
+  - name: sg1 fool
+    server: beacon.liveon.id
+    port: 443
+    type: vless
+    uuid: 9b193245-506e-4660-8dd7-832d973d4182
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sg1.foolvpn.tech
+    network: ws
+    ws-opts:
+      path: /vless
+      headers:
+        Host: sg1.foolvpn.tech
+    udp: true
