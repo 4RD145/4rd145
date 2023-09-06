@@ -1,16 +1,16 @@
 proxies:
-  - name: id2 foolvpn
+  - name: sg1 foolvpn
     server: beacon.liveon.id
-    type: vless
     port: 443
+    type: vless
     uuid: 9b193245-506e-4660-8dd7-832d973d4182
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: id2.foolvpn.tech
+    servername: sg1.foolvpn.tech
     network: ws
     ws-opts:
       path: /vless
       headers:
-        Host: id2.foolvpn.tech
+        Host: sg1.foolvpn.tech
     udp: true
