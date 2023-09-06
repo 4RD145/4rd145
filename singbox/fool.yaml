@@ -13,4 +13,10 @@ proxies:
       path: /vless
       headers:
         Host: sg1.foolvpn.tech
+      max-early-data: 0
+    early-data-header-name: Sec-WebSocket-Protocol
+    alpn:
+      - h2
+      - http/1.1
+    xudp: true
     udp: true
