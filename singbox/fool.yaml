@@ -13,8 +13,5 @@ proxies:
       path: /vless
       headers:
         Host: id2.foolvpn.tech
-    alpn:
-      - h2
-      - http/1.1
     udp: true
     xudp: true
