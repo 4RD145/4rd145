@@ -4,6 +4,7 @@ proxies:
     type: vless
     port: 443
     uuid: 9b193245-506e-4660-8dd7-832d973d4182
+    cipher: auto
     tls: true
     skip-cert-verify: true
     servername: id2.foolvpn.tech
