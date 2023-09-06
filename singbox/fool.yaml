@@ -1,0 +1,2 @@
+proxies:
+  - {name: sg1 fool, server: 104.21.8.121, port: 443, type: vless, uuid: 9b193245-506e-4660-8dd7-832d973d4182, cipher: auto, tls: true, skip-cert-verify: true, servername: sg1.foolvpn.tech, network: ws, ws-opts: {path: /vless, headers: {Host: sg1.foolvpn.tech}}, udp: true}
