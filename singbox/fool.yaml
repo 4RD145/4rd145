@@ -8,17 +8,13 @@ proxies:
     tls: true
     skip-cert-verify: true
     servername: id2.foolvpn.tech
-    client-fingerprint: random
     network: ws
     ws-opts:
       path: /vless
       headers:
         Host: id2.foolvpn.tech
-      max-early-data: 0
-      early-data-header-name: Sec-WebSocket-Protocol
     alpn:
       - h2
       - http/1.1
     udp: true
     xudp: true
-
