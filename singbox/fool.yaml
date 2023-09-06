@@ -14,4 +14,3 @@ proxies:
       headers:
         Host: id2.foolvpn.tech
     udp: true
-    xudp: true
